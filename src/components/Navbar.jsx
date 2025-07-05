@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {motion, AnimatePresence} from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import SafeIcon from '../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
 
-const {FiMenu, FiX} = FiIcons;
+const { FiMenu, FiX } = FiIcons;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,17 +99,14 @@ const Navbar = () => {
     setIsOpen(false);
     setHoveredItem(null);
     // Scroll to top when navigating
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <motion.nav
       ref={menuRef}
-      initial={{y: -100}}
-      animate={{y: 0}}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
@@ -118,7 +115,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2" onClick={handleNavClick}>
             <motion.div
-              whileHover={{scale: 1.05}}
+              whileHover={{ scale: 1.05 }}
               className={`text-2xl font-playfair font-bold transition-colors duration-300 ${
                 scrolled ? 'text-sage-800' : 'text-lavender-300'
               }`}
@@ -144,10 +141,10 @@ const Navbar = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{opacity: 0, y: -20}}
-              animate={{opacity: 1, y: 0}}
-              exit={{opacity: 0, y: -20}}
-              transition={{duration: 0.2}}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
               className="bg-white/95 backdrop-blur-md border-t border-sage-200 rounded-b-lg shadow-xl"
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4">
@@ -177,10 +174,10 @@ const Navbar = () => {
                     {hoveredItem ? (
                       <motion.div
                         key={hoveredItem.name}
-                        initial={{opacity: 0, x: 20}}
-                        animate={{opacity: 1, x: 0}}
-                        exit={{opacity: 0, x: -20}}
-                        transition={{duration: 0.2}}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
                         className="bg-sage-50 rounded-lg p-4 h-full min-h-[200px] flex flex-col justify-center"
                       >
                         <div className="flex items-center space-x-4">
@@ -197,8 +194,8 @@ const Navbar = () => {
                               {hoveredItem.description}
                             </p>
                             <motion.div
-                              initial={{width: 0}}
-                              animate={{width: '100%'}}
+                              initial={{ width: 0 }}
+                              animate={{ width: '100%' }}
                               className="h-1 bg-lavender-300 rounded-full mt-3"
                             />
                           </div>
@@ -206,8 +203,8 @@ const Navbar = () => {
                       </motion.div>
                     ) : (
                       <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         className="bg-gradient-to-br from-lavender-50 to-sage-50 rounded-lg p-6 h-full min-h-[200px] flex flex-col justify-center items-center text-center"
                       >
                         <div className="text-sage-400 mb-3">
@@ -230,10 +227,10 @@ const Navbar = () => {
                     {hoveredItem && (
                       <motion.div
                         key={hoveredItem.name}
-                        initial={{opacity: 0, y: 10}}
-                        animate={{opacity: 1, y: 0}}
-                        exit={{opacity: 0, y: -10}}
-                        transition={{duration: 0.2}}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
                         className="bg-sage-50 rounded-lg p-3 mt-2"
                       >
                         <div className="flex items-center space-x-3">

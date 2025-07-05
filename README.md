@@ -21,7 +21,7 @@ A modern, responsive yoga instructor website built with React, featuring online 
 
 ### Frontend
 - **React 18.3.1** - Main framework
-- **React Router DOM 7.1.0** - Navigation and routing
+- **React Router DOM 7.1.0** - Navigation and routing (BrowserRouter)
 - **Framer Motion 11.0.8** - Animations and transitions
 - **Tailwind CSS 3.4.17** - Styling framework
 - **React Icons 5.4.0** - Icon library
@@ -45,6 +45,8 @@ A modern, responsive yoga instructor website built with React, featuring online 
 - ⚡ **Fast Loading** - Optimized performance
 - 🔍 **SEO Friendly** - Meta tags and semantic HTML
 - 🎭 **Smooth Animations** - Framer Motion powered
+- 🖼️ **Site Icons** - Complete favicon setup
+- 📢 **Marketing Pop-up** - Conversion-focused modal
 
 ### Pages & Sections
 - 🏠 **Home** - Hero section, benefits, featured classes
@@ -61,6 +63,7 @@ A modern, responsive yoga instructor website built with React, featuring online 
 - 🎯 **Hover Previews** - Navigation menu previews
 - 📱 **Mobile Menu** - Responsive hamburger menu
 - 🎨 **Smooth Scrolling** - Enhanced user experience
+- 💬 **Marketing Pop-up** - Smart timing and session control
 
 ## 🚀 Installation
 
@@ -108,6 +111,51 @@ VITE_EMAILJS_USER_ID=your_user_id
 
 # Stripe (For payments)
 VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+```
+
+### Site Icons Setup
+
+The website includes a complete favicon setup:
+
+#### Icons Included:
+- `favicon.ico` - Traditional favicon
+- `favicon.svg` - Modern SVG favicon
+- `apple-touch-icon.png` - Apple devices (180x180)
+- `favicon-32x32.png` - Standard favicon
+- `favicon-16x16.png` - Small favicon
+
+#### To Replace Icons:
+1. Create your logo/icon design
+2. Generate different sizes using tools like:
+   - [RealFaviconGenerator](https://realfavicongenerator.net/)
+   - [Favicon.io](https://favicon.io/)
+3. Replace files in the `public/` directory
+4. Update the SVG code in `public/favicon.svg`
+
+### Marketing Pop-up Configuration
+
+The pop-up is configured in `src/components/PopupModal.jsx`:
+
+#### Current Settings:
+- **Timing**: Shows after 45 seconds OR when user scrolls 50% down
+- **Frequency**: Once per session (uses sessionStorage)
+- **Email**: hi@fridaypr.com
+- **Dismissible**: Yes, with close button
+
+#### To Customize:
+```javascript
+// Change timing (in milliseconds)
+timeoutId = setTimeout(showPopup, 45000); // 45 seconds
+
+// Change scroll trigger
+if (scrollPercent >= 50 && !hasBeenShown) { // 50% scroll
+
+// Change email
+window.open('mailto:your-email@domain.com', '_blank');
+
+// Change content
+<h2>Your Custom Heading</h2>
+<p>Your custom message</p>
 ```
 
 ### Stripe Configuration
@@ -397,6 +445,16 @@ const images = [
 
 ## 🚀 Deployment
 
+### Important: Routing Setup
+This website uses **BrowserRouter** and includes a `_redirects` file in the `public` folder for proper deployment on platforms like Netlify.
+
+The `_redirects` file contains:
+```
+/*    /index.html   200
+```
+
+This ensures all routes work correctly in production.
+
 ### Build for Production
 ```bash
 npm run build
@@ -408,11 +466,13 @@ yarn build
 1. Build your project: `npm run build`
 2. Drag the `dist` folder to [Netlify Drop](https://app.netlify.com/drop)
 3. Or connect your GitHub repository for automatic deployments
+4. The `_redirects` file will automatically handle routing
 
 ### Deploy to Vercel
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run: `vercel`
 3. Follow the prompts
+4. Vercel automatically handles SPA routing
 
 ### Deploy to GitHub Pages
 1. Install gh-pages: `npm install --save-dev gh-pages`
@@ -460,6 +520,16 @@ Set these in your hosting platform:
 - Check for missing dependencies: `npm install`
 - Verify all imports are correct
 - Check for TypeScript errors if using TypeScript
+
+#### 6. Routing Issues
+- Ensure `_redirects` file is in the `public` folder
+- Check that BrowserRouter is properly configured
+- Verify all route paths are correct
+
+#### 7. Pop-up Not Showing
+- Check browser console for JavaScript errors
+- Verify sessionStorage is working
+- Test in incognito mode to reset session
 
 ### Performance Optimization
 
@@ -535,35 +605,18 @@ const handleBooking = () => {
 ## 🎯 SEO Optimization
 
 ### Meta Tags
-Update in `index.html`:
-```html
-<meta name="description" content="Your site description">
-<meta name="keywords" content="yoga, meditation, wellness">
-<meta property="og:title" content="Your Site Title">
-<meta property="og:description" content="Your site description">
-<meta property="og:image" content="your-og-image-url">
-```
+The site includes comprehensive meta tags in `index.html`:
+- Title and description
+- Open Graph tags for social sharing
+- Twitter Card tags
+- Structured data for search engines
 
 ### Structured Data
-Add JSON-LD schema for local business:
-```html
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "YogaStudio",
-  "name": "Sama Yoga with Maya",
-  "description": "Yoga classes and meditation",
-  "url": "https://your-website.com",
-  "telephone": "+1-514-555-9876",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Montreal",
-    "addressRegion": "QC",
-    "addressCountry": "CA"
-  }
-}
-</script>
-```
+Includes JSON-LD schema for:
+- Local business information
+- Yoga studio details
+- Instructor information
+- Contact details
 
 ## 🤝 Contributing
 
@@ -587,6 +640,7 @@ Add JSON-LD schema for local business:
 - Test responsive design
 - Test all interactive elements
 - Verify payment flows in test mode
+- Test pop-up functionality
 
 ## 📞 Support
 

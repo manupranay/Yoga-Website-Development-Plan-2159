@@ -1,8 +1,9 @@
 import React from 'react';
-import {HashRouter as Router, Routes, Route} from 'react-router-dom';
-import {motion} from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PopupModal from './components/PopupModal';
 import Home from './pages/Home';
 import About from './pages/About';
 import Classes from './pages/Classes';
@@ -19,9 +20,9 @@ function App() {
       <div className="min-h-screen bg-beige-50">
         <Navbar />
         <motion.main
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          transition={{duration: 0.5}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <Routes>
             <Route path="/" element={<Home />} />
@@ -35,6 +36,7 @@ function App() {
           </Routes>
         </motion.main>
         <Footer />
+        <PopupModal />
       </div>
     </Router>
   );
