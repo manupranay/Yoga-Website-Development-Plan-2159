@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import {Link} from 'react-router-dom';
+import {motion} from 'framer-motion';
 import SafeIcon from '../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
 
-const { FiInstagram, FiFacebook, FiMail, FiPhone, FiMapPin } = FiIcons;
+const {FiInstagram, FiFacebook, FiMail, FiPhone, FiMapPin} = FiIcons;
 
 const Footer = () => {
   const handleNavClick = () => {
     // Scroll to top when navigating
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
@@ -19,8 +22,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{opacity: 0, y: 20}}
+              whileInView={{opacity: 1, y: 0}}
               className="mb-4"
             >
               <h3 className="text-2xl font-playfair font-bold text-beige-200">
@@ -31,19 +34,18 @@ const Footer = () => {
               </p>
             </motion.div>
             <p className="text-sage-300 font-lato mb-4">
-              Certified yoga instructor helping you reconnect with yourself 
-              through mindful movement and breathwork.
+              Certified yoga instructor helping you reconnect with yourself through mindful movement and breathwork.
             </p>
             <div className="flex space-x-4">
               <motion.a
-                whileHover={{ scale: 1.1 }}
+                whileHover={{scale: 1.1}}
                 href="#"
                 className="text-sage-300 hover:text-beige-200 transition-colors"
               >
                 <SafeIcon icon={FiInstagram} className="h-6 w-6" />
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.1 }}
+                whileHover={{scale: 1.1}}
                 href="#"
                 className="text-sage-300 hover:text-beige-200 transition-colors"
               >
@@ -83,6 +85,15 @@ const Footer = () => {
                   className="text-sage-300 hover:text-beige-200 transition-colors"
                 >
                   Schedule
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/pricing"
+                  onClick={handleNavClick}
+                  className="text-sage-300 hover:text-beige-200 transition-colors"
+                >
+                  Pricing
                 </Link>
               </li>
               <li>
