@@ -185,13 +185,10 @@ const Home = () => {
                 Meet Maya
               </h2>
               <p className="text-lg text-sage-600 font-lato mb-6">
-                Hi, I'm Maya – a certified yoga instructor with 8+ years of experience 
-                helping people reconnect with themselves through movement and mindfulness.
+                Hi, I'm Maya – a certified yoga instructor with 8+ years of experience helping people reconnect with themselves through movement and mindfulness.
               </p>
               <p className="text-sage-600 font-lato mb-8">
-                My journey began during a period of corporate burnout, and through yoga, 
-                I found my way back to balance and inner peace. Now, I'm passionate about 
-                sharing this transformative practice with others.
+                My journey began during a period of corporate burnout, and through yoga, I found my way back to balance and inner peace. Now, I'm passionate about sharing this transformative practice with others.
               </p>
               <Link
                 to="/about"

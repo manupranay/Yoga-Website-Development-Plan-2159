@@ -1,18 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {motion} from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SafeIcon from '../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
 
-const {FiInstagram, FiFacebook, FiMail, FiPhone, FiMapPin} = FiIcons;
+const { FiInstagram, FiFacebook, FiMail, FiPhone, FiMapPin, FiStar, FiHeart } = FiIcons;
 
 const Footer = () => {
   const handleNavClick = () => {
     // Scroll to top when navigating
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleEmailClick = () => {
+    window.open('mailto:hello@fridaypr.com?subject=Custom Website Inquiry - Sama Yoga Template', '_blank');
   };
 
   return (
@@ -22,8 +23,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <motion.div
-              initial={{opacity: 0, y: 20}}
-              whileInView={{opacity: 1, y: 0}}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               className="mb-4"
             >
               <h3 className="text-2xl font-playfair font-bold text-beige-200">
@@ -38,14 +39,14 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                whileHover={{scale: 1.1}}
+                whileHover={{ scale: 1.1 }}
                 href="#"
                 className="text-sage-300 hover:text-beige-200 transition-colors"
               >
                 <SafeIcon icon={FiInstagram} className="h-6 w-6" />
               </motion.a>
               <motion.a
-                whileHover={{scale: 1.1}}
+                whileHover={{ scale: 1.1 }}
                 href="#"
                 className="text-sage-300 hover:text-beige-200 transition-colors"
               >
@@ -130,7 +131,41 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-sage-700 mt-8 pt-8 text-center">
+        {/* Promotional Block */}
+        <div className="border-t border-sage-700 mt-8 pt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-lavender-600/20 to-sage-600/20 rounded-2xl p-6 mb-6 border border-lavender-400/30"
+          >
+            <div className="text-center">
+              <div className="flex justify-center items-center space-x-2 mb-3">
+                <SafeIcon icon={FiStar} className="h-5 w-5 text-beige-200" />
+                <span className="text-lg font-playfair font-semibold text-beige-200">
+                  Love this design?
+                </span>
+                <SafeIcon icon={FiStar} className="h-5 w-5 text-beige-200" />
+              </div>
+              <p className="text-sage-200 font-lato mb-4 leading-relaxed">
+                We can build a custom website just like this — tailored to your brand, voice, and vibe.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleEmailClick}
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-lavender-500 to-sage-500 hover:from-lavender-600 hover:to-sage-600 text-white px-6 py-3 rounded-full font-lato font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                <SafeIcon icon={FiMail} className="h-4 w-4" />
+                <span>hello@fridaypr.com</span>
+                <SafeIcon icon={FiHeart} className="h-4 w-4" />
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-center">
           <p className="text-sage-300 font-lato">
             © {new Date().getFullYear()} Sama Yoga with Maya. All rights reserved.
           </p>
